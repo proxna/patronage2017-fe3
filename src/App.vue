@@ -7,10 +7,10 @@
                 <label for="value">Value</label>
                 <input v-model.number="newCountValue" name="value" type="number">
             </div>
-            <button v-on:click="addCounter()">Add Counter</button>
-            <button v-on:click="removeLast()">Remove Last Counter</button>
+            <button v-on:click="addCounter">Add Counter</button>
+            <button v-on:click="removeLast">Remove Last Counter</button>
         </div>
-        <counter v-for="counter in counters" :format="counter.format" :value="counter.value" :id="counter.id" v-on:remove="remove" :key="id"></counter>
+        <counter v-for="counter in counters" :format="counter.format" :value="counter.value" :id="counter.id" v-on:remove="remove" :key="counter.id"></counter>
     </div>
 </template>
 
@@ -32,9 +32,8 @@
         },
         methods: {
             addCounter(){
-                console.log();
                 if (this.newCountValue >= 0 && this.newCountValue <= Math.pow(10, this.newCountFormat) - 1) {
-                    var newCounter = {
+                    let newCounter = {
                         format: this.newCountFormat,
                         value: this.newCountValue,
                         id: this.id
@@ -43,13 +42,14 @@
                     this.counters.push(newCounter);
                 }
                 else {
-                    alert("value out of range")
+                    alert("value out of range");
                 }
             },
             removeLast(){
                 this.counters.pop();
             },
             remove(id){
+                console.log(id);
                 this.counters = this.counters.filter(el => {
                             return el.id !== id;
                 });

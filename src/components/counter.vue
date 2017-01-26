@@ -95,7 +95,7 @@
         box-shadow: 1px 1px 2px 0 rgba(158, 158, 158, 1)
     }
 
-    .delete{
+    .delete {
         background-color: #b92c28;
     }
 
@@ -126,7 +126,7 @@
         animation-fill-mode: forwards;
     }
 
-    .animatedCounter{
+    .animatedCounter {
         -webkit-animation: counterAnim .5s linear;
         -moz-animation: counterAnim .5s linear;
         animation: counterAnim .5s linear;
